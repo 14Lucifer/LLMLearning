@@ -10,12 +10,14 @@ This script automates the setup of a development environment with Docker, Portai
 - Automated health checks for containers
 
 ## Prerequisites ⚙️
-- Ubuntu-based Linux system
+- Ubuntu 22  Linux OS
+- Minimum 2vCPU 4GB 40GB SSD/HDD system
 - Sudo privileges
 
 ## Setup Instructions 📋
 1. **Clone the repository:**
    ```bash
-   git clone <your-repository-url>
-   cd <your-repository-directory>
+   git clone https://github.com/14Lucifer/LLMLearning.git
+   cd /root/LLMLearning/tools/
+   ./ubuntu22_prepare.sh
 
