@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Mockup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .payment-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .payment-option {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 150px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .payment-option img {
+            width: 80px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Payment Method</h1>
+    <p>Following are payment providers for "One-time" payments.</p>
+    <div class="payment-container">
+        <div class="payment-option" onclick="alert('Apple Pay selected!')">
+            <img src="https://demo-static-webpage.oss-ap-southeast-1.aliyuncs.com/images/apple_logo.png" alt="Apple Pay">
+            <p>Apple Pay</p>
+        </div>
+        <div class="payment-option" onclick="alert('Visa selected!')">
+            <img src="https://demo-static-webpage.oss-ap-southeast-1.aliyuncs.com/images/visa_logo.png" alt="Visa">
+            <p>Visa</p>
+        </div>
+        <div class="payment-option" onclick="alert('Mastercard selected!')">
+            <img src="https://demo-static-webpage.oss-ap-southeast-1.aliyuncs.com/images/master_logo.png" alt="Mastercard">
+            <p>Mastercard</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .button {
+            display: block;
+            margin: 15px auto;
+            padding: 15px;
+            width: 80%;
+            color: white;
+            background: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .payment-option {
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .icon {
+            width: 220px;
+            height: 60px;
+            border-radius: 30px;
+            background-color: #007BFF;
+            color: white;
+            line-height: 60px;  /* Centers the text vertically */
+            font-size: 20px;
+            margin: 0 auto 10px;
+        }
+        .payment-option p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Payment Type</h1>
+        <div class="payment-option" onclick="window.location.href='one-time-payment.html'">
+            <div class="icon">One-time Payment</div>
+            <p>ApplePay, Visa, Master</p>
+        </div>
+        <div class="payment-option" onclick="window.location.href='split-payment.html'">
+            <div class="icon">Split Payment</div>
+            <p>Tabby, Tamara</p>
+        </div>
+    </div>
+</body>
+</html>

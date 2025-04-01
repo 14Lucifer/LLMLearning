@@ -1,0 +1,13 @@
+[Unit]
+Description=Simple Python HTTP Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/LLMLearning/tools/PythonWebServer/
+ExecStart=/usr/bin/python3 app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
