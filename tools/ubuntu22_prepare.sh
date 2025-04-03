@@ -120,7 +120,7 @@ echo_progress "Apache Superset installation completed."
 echo_progress "Starting VSCode installation..."
 curl -fsSL https://code-server.dev/install.sh | sh
 systemctl enable --now code-server@$USER
-systemctl start --now code-server@$USER
+systemctl stop code-server@$USER
 mv /$USER/.config/code-server/config.yaml /$USER/.config/code-server/config.yaml.bak
 echo "bind-addr: 0.0.0.0:9080" >> /$USER/.config/code-server/config.yaml
 echo "auth: password" >> /$USER/.config/code-server/config.yaml
