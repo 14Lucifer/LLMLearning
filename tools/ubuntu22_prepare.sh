@@ -98,7 +98,7 @@ echo_progress "Waiting for Superset container to become healthy..."
 while :
 do
   STATUS=$(docker inspect --format='{{.State.Health.Status}}' superset_app 2>/dev/null || echo "")
-  if [ "$STATUS" == "healthy" ]; then
+  if [ "$STATUS" = "healthy" ]; then
     echo_progress "Superset container is healthy."
     break
   fi
@@ -121,11 +121,12 @@ echo_progress "Starting VSCode installation..."
 curl -fsSL https://code-server.dev/install.sh | sh
 systemctl enable --now code-server@$USER
 systemctl start --now code-server@$USER
-echo "bind-addr: 0.0.0.0:9080
-auth: password
-password: 8Sw31oCb67
-cert: false" > /$USER/.config/code-server/config.yaml
-systemctl restart --now code-server@$USER
+mv /$USER/.config/code-server/config.yaml /$USER/.config/code-server/config.yaml.bak
+echo "bind-addr: 0.0.0.0:9080" >> /$USER/.config/code-server/config.yaml
+echo "auth: password" >> /$USER/.config/code-server/config.yaml
+echo "password: 8Sw31oCb67" >> /$USER/.config/code-server/config.yaml
+echo "cert: false" >> /$USER/.config/code-server/config.yaml
+systemctl restart code-server@$USER
 echo_progress "VSCode installation completed."
 
 # Step 6: Set up Python Web Server using systemd
