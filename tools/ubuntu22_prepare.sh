@@ -120,7 +120,7 @@ echo_progress "Apache Superset installation completed."
 echo_progress "Starting VSCode installation..."
 curl -fsSL https://code-server.dev/install.sh | sh
 systemctl enable --now code-server@$USER
-systemctl stop code-server@$USER
+systemctl start code-server@$USER
 mv /$USER/.config/code-server/config.yaml /$USER/.config/code-server/config.yaml.bak
 echo "bind-addr: 0.0.0.0:9080" >> /$USER/.config/code-server/config.yaml
 echo "auth: password" >> /$USER/.config/code-server/config.yaml
@@ -131,16 +131,10 @@ echo_progress "VSCode installation completed."
 
 # Step 6: Set up Python Web Server using systemd
 echo_progress "Setting up a simple Python web server using systemd..."
-
-# Copy the Python HTTP service configuration
-cp /root/LLMLearning/tools/PythonWebServer/python-http.service /etc/systemd/system/
-
-# Start the Python web server service
+cp /$USER/LLMLearning/tools/PythonWebServer/python-http.service /etc/systemd/system/
+/usr/bin/pip3 install flask
 systemctl start python-http
-
-# Enable the service to start on boot
 systemctl enable python-http
-
 echo_progress "Python web server setup completed successfully."
 
 # Final message
