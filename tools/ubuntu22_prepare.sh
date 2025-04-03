@@ -121,11 +121,23 @@ echo_progress "Starting VSCode installation..."
 curl -fsSL https://code-server.dev/install.sh | sh
 systemctl enable --now code-server@$USER
 systemctl start code-server@$USER
-mv /$USER/.config/code-server/config.yaml /$USER/.config/code-server/config.yaml.bak
-echo "bind-addr: 0.0.0.0:9080" >> /$USER/.config/code-server/config.yaml
-echo "auth: password" >> /$USER/.config/code-server/config.yaml
-echo "password: 8Sw31oCb67" >> /$USER/.config/code-server/config.yaml
-echo "cert: false" >> /$USER/.config/code-server/config.yaml
+FILE_PATH="/$HOME/.config/code-server/config.yaml"
+
+while true; do
+  if [ -f "$FILE_PATH" ]; then
+    echo "File '$FILE_PATH' exists. Exiting loop."
+    break
+  else
+    echo "File '$FILE_PATH' not found. Checking again in 5 seconds..."
+  fi
+  sleep 5
+done
+
+mv /$HOME/.config/code-server/config.yaml /$HOME/.config/code-server/config.yaml.bak
+echo "bind-addr: 0.0.0.0:9080
+auth: password
+password: 8Sw31oCb67
+cert: false" > /$HOME/.config/code-server/config.yaml
 systemctl restart code-server@$USER
 echo_progress "VSCode installation completed."
 
